@@ -1,13 +1,13 @@
 {
   "name": "vuepress-tabs",
   "author": "Panagiotis Skordilakis <p.skordilakis@gmail.com>",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vuepress plugin - markdown custom container to display content in tabs",
   "keywords": [
     "vuepress",
     "tabs"
   ],
-  "homepage" : "https://github.com/pskordilakis/vuepress-tabs",
+  "homepage": "https://github.com/pskordilakis/vuepress-tabs",
   "bugs": "https://github.com/pskordilakis/vuepress-tabs/issues",
   "license": "MIT",
   "main": "dist/vuepress-tabs.cjs.js",
