@@ -1,13 +1,17 @@
 {
   "name": "vuepress-tabs",
-  "author": "Panagiotis Skordilakis",
-  "version": "0.0.1 ",
-  "license": "MIT",
-  "main": "dist/vuepress-tabs.cjs.js",
+  "author": "Panagiotis Skordilakis <p.skordilakis@gmail.com>",
+  "version": "0.1.0",
+  "description": "Vuepress plugin - markdown custom container to display content in tabs",
   "keywords": [
     "vuepress",
     "tabs"
   ],
+  "homepage" : "https://github.com/pskordilakis/vuepress-tabs",
+  "bugs": "https://github.com/pskordilakis/vuepress-tabs/issues",
+  "license": "MIT",
+  "main": "dist/vuepress-tabs.cjs.js",
+  "module": "dist/vuepress-tabs.esm.js",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",

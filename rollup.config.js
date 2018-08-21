@@ -4,12 +4,20 @@ import resolve from 'rollup-plugin-node-resolve'
 export default [
   {
     input: 'src/index.js',
-    output: {
-      file: 'dist/vuepress-tabs.js',
-      format: 'umd',
-      name: 'vuepress-tabs',
-      external: [ 'markdown-it-container' ]
-    },
+    output: [
+      {
+        file: 'dist/vuepress-tabs.cjs.js',
+        format: 'cjs',
+        name: 'vuepress-tabs',
+        external: [ 'markdown-it-container' ]
+      },
+      {
+        file: 'dist/vuepress-tabs.esm.js',
+        format: 'esm',
+        name: 'vuepress-tabs',
+        external: [ 'markdown-it-container' ]
+      },
+    ],
     plugins: [
       resolve({
         main: true,
@@ -19,5 +27,5 @@ export default [
         plugins: ['external-helpers'],
       }),
     ],
-  }
+  },
 ]
