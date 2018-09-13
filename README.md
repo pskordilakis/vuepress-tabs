@@ -11,8 +11,8 @@ Expose [vue-tabs-component](https://github.com/spatie/vue-tabs-component) as cus
 Register in enhanceApp.js
 ``` js
 import Tabs from 'vue-tabs-component'
-
-export default ({
+ 
+export default (({
     Vue, // the version of Vue being used in the VuePress app
     options, // the options for the root Vue instance
     router, // the router instance for the app
@@ -21,7 +21,7 @@ export default ({
     //...
     Vue.use(Tabs)
     //...
-  })
+  });
 ```
 
 ## Installation
