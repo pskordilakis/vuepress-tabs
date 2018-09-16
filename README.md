@@ -11,7 +11,7 @@ Expose [vue-tabs-component](https://github.com/spatie/vue-tabs-component) as cus
 Register in enhanceApp.js
 ``` js
 import Tabs from 'vue-tabs-component'
- 
+
 export default (({
     Vue, // the version of Vue being used in the VuePress app
     options, // the options for the root Vue instance
@@ -21,7 +21,7 @@ export default (({
     //...
     Vue.use(Tabs)
     //...
-  });
+  })
 ```
 
 ## Installation
@@ -55,7 +55,7 @@ import theme in style.styl
 
 
 
-## Use
+## Usage
 
 ~~~ md
 :::: tabs
@@ -66,6 +66,31 @@ __Tab Content__
 
 
 ::: tab javascript
+``` javascript
+() => {
+  console.log('Javscript code example')
+}
+```
+:::
+
+::::
+
+~~~
+
+### Tab attributes
+
+All attributes in name="value" form will be passed to tab component.
+By default any value that does not have a name will be passed as the name attribute. Multiword names must be enclosed in quotes
+
+~~~ md
+:::: tabs
+
+::: tab "Tab Title" id="first-tab"
+__Tab Content__
+:::
+
+
+::: tab javascript id="second-tab"
 ``` javascript
 () => {
   console.log('Javscript code example')

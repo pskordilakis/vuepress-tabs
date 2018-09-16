@@ -4,10 +4,30 @@ export default md => {
   md.use(container, 'tab', {
     render: (tokens, idx) => {
       const token = tokens[idx]
-      const info = token.info.trim().slice('tab'.length).trim()
+      const attributes = token.info
+        .trim()
+        .slice('tab'.length)
+        .trim()
+        .split(/ +(?=(?:(?:[^"]*"){2})*[^"]*$)/g)
+        .map(attr => {
+          if (!attr.includes('=')) {
+            if (!attr.startsWith('"')) {
+              attr = `"${attr}`
+            }
+
+            if (!attr.endsWith('"')) {
+              attr = `${attr}"`
+            }
+
+            return `name=${attr}`
+          }
+
+          return attr
+        })
+        .join(' ')
 
       if (token.nesting === 1) {
-        return `<tab name="${info}">\n`
+        return `<tab ${attributes}>\n`
       } else {
         return `</tab>\n`
       }
