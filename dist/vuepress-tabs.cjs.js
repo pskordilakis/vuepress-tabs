@@ -5,7 +5,6 @@ var container = require('markdown-it-container');
 var tabs = (function (md) {
   md.use(container, 'tabs', {
     render: function render(tokens, idx) {
-      // return `<span>tabs goes here</span>`
       var token = tokens[idx];
 
       if (token.nesting === 1) {
@@ -23,10 +22,24 @@ var tab = (function (md) {
   md.use(container$1, 'tab', {
     render: function render(tokens, idx) {
       var token = tokens[idx];
-      var info = token.info.trim().slice('tab'.length).trim();
+      var attributes = token.info.trim().slice('tab'.length).trim().split(/ +(?=(?:(?:[^"]*"){2})*[^"]*$)/g).map(function (attr) {
+        if (!attr.includes('=')) {
+          if (!attr.startsWith('"')) {
+            attr = '"' + attr;
+          }
+
+          if (!attr.endsWith('"')) {
+            attr = attr + '"';
+          }
+
+          return 'name=' + attr;
+        }
+
+        return attr;
+      }).join(' ');
 
       if (token.nesting === 1) {
-        return '<tab name="' + info + '">\n';
+        return '<tab ' + attributes + '>\n';
       } else {
         return '</tab>\n';
       }
