@@ -1,30 +1,12 @@
 const container = require('markdown-it-container')
 
+import { tabAttributes } from './util'
+
 export default md => {
   md.use(container, 'tab', {
     render: (tokens, idx) => {
       const token = tokens[idx]
-      const attributes = token.info
-        .trim()
-        .slice('tab'.length)
-        .trim()
-        .split(/ +(?=(?:(?:[^"]*"){2})*[^"]*$)/g)
-        .map(attr => {
-          if (!attr.includes('=')) {
-            if (!attr.startsWith('"')) {
-              attr = `"${attr}`
-            }
-
-            if (!attr.endsWith('"')) {
-              attr = `${attr}"`
-            }
-
-            return `name=${attr}`
-          }
-
-          return attr
-        })
-        .join(' ')
+      const attributes = tabAttributes(token.info)
 
       if (token.nesting === 1) {
         return `<tab ${attributes}>\n`
