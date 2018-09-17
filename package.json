@@ -17,7 +17,9 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.2.0",
+    "eslint-plugin-jest": "^21.22.0",
     "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
     "lint-staged": "^7.2.0",
     "markdown-it-container": "^2.0.0",
     "rollup": "^0.64.1",
@@ -28,6 +30,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "test": "jest --notify",
+    "test-watch": "jest --watch --notify",
     "lint": "eslint . --ext=js"
   }
 }
