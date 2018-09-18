@@ -61,7 +61,7 @@ import theme in style.styl
 :::: tabs
 
 ::: tab title
-__Tab Content__
+__markdown content__
 :::
 
 
@@ -77,16 +77,42 @@ __Tab Content__
 
 ~~~
 
+### Tabs attributes
+
+Everything after tabs will be passed to tabs component as attributes.
+
+~~~ md
+:::: tabs cache-lifetime="10" :options="{ useUrlFragment: false }"
+
+::: tab "Tab Title" id="first-tab"
+__markdown content__
+:::
+
+
+::: tab javascript id="second-tab"
+``` javascript
+() => {
+  console.log('Javscript code example')
+}
+```
+:::
+
+::::
+
+~~~
+
+
 ### Tab attributes
 
-All attributes in name="value" form will be passed to tab component.
-By default any value that does not have a name will be passed as the name attribute. Multiword names must be enclosed in quotes
+Everything after tab will be passed to tab component as attributes.
+Any value that does not have a name will be passed as the name attribute. Multiword names must be enclosed in quotes.
+Only one such value is valid.
 
 ~~~ md
 :::: tabs
 
 ::: tab "Tab Title" id="first-tab"
-__Tab Content__
+__markdown content__
 :::
 
 
