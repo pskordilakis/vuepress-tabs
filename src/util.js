@@ -24,3 +24,9 @@ export function tabAttributes (val) {
     .join(' ')
 }
 
+export function tabsAttributes (val) {
+  return val
+    // sanitize input
+    .trim().slice('tabs'.length).trim()
+}
+

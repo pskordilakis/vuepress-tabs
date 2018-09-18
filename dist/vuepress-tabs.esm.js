@@ -1,19 +1,3 @@
-var container = require('markdown-it-container');
-
-var tabs = (function (md) {
-  md.use(container, 'tabs', {
-    render: function render(tokens, idx) {
-      var token = tokens[idx];
-
-      if (token.nesting === 1) {
-        return '<div class="vuepress-tabs"><tabs class="custome-tabs">\n';
-      } else {
-        return '</tabs></div>\n';
-      }
-    }
-  });
-});
-
 function tabAttributes(val) {
   return val
   // sanitize input
@@ -39,6 +23,29 @@ function tabAttributes(val) {
   // roin into a string
   .join(' ');
 }
+
+function tabsAttributes(val) {
+  return val
+  // sanitize input
+  .trim().slice('tabs'.length).trim();
+}
+
+var container = require('markdown-it-container');
+
+var tabs = (function (md) {
+  md.use(container, 'tabs', {
+    render: function render(tokens, idx) {
+      var token = tokens[idx];
+      var attributes = tabsAttributes(token.info);
+
+      if (token.nesting === 1) {
+        return '<div class="vuepress-tabs"><tabs ' + attributes + '>\n';
+      } else {
+        return '</tabs></div>\n';
+      }
+    }
+  });
+});
 
 var container$1 = require('markdown-it-container');
 
